@@ -1,3 +1,5 @@
+import 'package:bookspace/list_data.dart';
+import 'package:bookspace/widgets/recommendation_place.dart';
 import 'package:bookspace/widgets/widget_event_scroll.dart';
 import 'package:bookspace/widgets/widget_event_service.dart';
 import 'package:flutter/material.dart';
@@ -12,10 +14,11 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.white,
+        centerTitle: false,
         title: const Text(
           'BookSpace',
           style: TextStyle(
-              fontSize: 20,
+              fontSize: 21,
               color: Color.fromARGB(255, 248, 151, 33),
               fontWeight: FontWeight.w900),
         ),
@@ -103,6 +106,7 @@ class HomePage extends StatelessWidget {
                 const SizedBox(
                   height: 14,
                 ),
+                const RecommendationPlace(),
               ],
             ),
           )
