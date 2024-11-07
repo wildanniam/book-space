@@ -116,3 +116,54 @@ List<Map<String, dynamic>> eventServices = [
     'vendorContact': '087123456789',
   },
 ];
+
+final List<Map<String, String>> recomPlace = [
+  {
+    'name': 'Emerald Ballroom',
+    'price': 'Rp2.000.000',
+    'location': 'Jl. Gatot Subroto No.88, Jakarta',
+    'description':
+        'Ballroom luas dan elegan, cocok untuk acara besar dan pernikahan.',
+    'image': 'https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=80&w=2996&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  },
+  {
+    'name': 'Sunset Beach Resort',
+    'price': 'Rp3.200.000',
+    'location': 'Jl. Pantai Barat No.77, Bali',
+    'description':
+        'Resort dengan akses langsung ke pantai, sempurna untuk acara yang eksklusif.',
+    'image': 'https://images.unsplash.com/photo-1721617864119-611e4544ff07?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  },
+  {
+    'name': 'Skyline Convention Center',
+    'price': 'Rp2.500.000',
+    'location': 'Jl. Jenderal Sudirman No.45, Surabaya',
+    'description':
+        'Pusat konvensi modern dengan fasilitas canggih untuk acara bisnis.',
+    'image': 'https://images.unsplash.com/photo-1503575977665-5e1e9bb63822?q=80&w=2048&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  },
+  {
+    'name': 'Lakeview Resort & Hotel',
+    'price': 'Rp2.800.000',
+    'location': 'Jl. Danau Indah No.21, Lombok',
+    'description':
+        'Hotel dengan pemandangan danau yang memukau, sempurna untuk liburan dan acara.',
+    'image': 'https://plus.unsplash.com/premium_photo-1697729600112-434ee1c7f670?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  },
+  {
+    'name': 'Mountain View Lodge',
+    'price': 'Rp2.200.000',
+    'location': 'Jl. Bukit Tidar No.11, Malang',
+    'description':
+        'Lodge nyaman dengan pemandangan pegunungan, ideal untuk retret dan gathering.',
+    'image': 'https://images.unsplash.com/photo-1490780558417-87ed9954aa15?q=80&w=2829&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  },
+  {
+    'name': 'The Crystal Palace',
+    'price': 'Rp4.000.000',
+    'location': 'Jl. M.H. Thamrin No.10, Jakarta',
+    'description':
+        'Venue eksklusif dengan desain mewah, tepat untuk acara VIP dan gala dinner.',
+    'image': 'https://images.unsplash.com/photo-1594547290750-aac228651d21?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  },
+];
