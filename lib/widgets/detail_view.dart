@@ -1,6 +1,8 @@
 import 'package:bookspace/list_data.dart';
 import 'package:flutter/material.dart';
 
+import 'favorite_widget.dart';
+
 class DetailView extends StatefulWidget {
   const DetailView({super.key});
 
@@ -22,7 +24,6 @@ class _DetailViewState extends State<DetailView> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Stack(
-                        alignment: Alignment.bottomLeft,
                         children: [
                           Container(
                             height: 200,
@@ -44,31 +45,36 @@ class _DetailViewState extends State<DetailView> {
                               borderRadius: BorderRadius.circular(10),
                             ),
                           ),
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
+
+                          SizedBox(
+                            height: 200,
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              crossAxisAlignment: CrossAxisAlignment.end,
                               children: [
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      recomPlace[index]['name'] ?? '',
-                                      style: const TextStyle(
-                                        fontSize: 24,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white,
+                                Expanded(
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    mainAxisAlignment: MainAxisAlignment.end,
+                                    children: [
+                                      Text(
+                                        recomPlace[index]['name'] ?? '',
+                                        style: const TextStyle(
+                                          fontSize: 24,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.white,
+                                        ),
                                       ),
-                                    ),
-                                    Text(
-                                      recomPlace[index]['location'] ?? '',
-                                      style: const TextStyle(
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white,
+                                      Text(
+                                        recomPlace[index]['location'] ?? '',
+                                        style: const TextStyle(
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.white,
+                                        ),
                                       ),
-                                    ),
-                                  ],
+                                    ],
+                                  ),
                                 ),
                                 CircleAvatar(
                                   radius: 20,
@@ -81,7 +87,8 @@ class _DetailViewState extends State<DetailView> {
                                 )
                               ],
                             ),
-                          )
+                          ), 
+                          const Positioned(top:0, right:0, child: FavoriteButton(),),
                         ],
                       ),
                     ],
