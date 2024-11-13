@@ -106,7 +106,7 @@ class HomePage extends StatelessWidget {
                 const SizedBox(
                   height: 14,
                 ),
-                const RecommendationPlace(),
+                 const RecommendationPlace(),
               ],
             ),
           )
