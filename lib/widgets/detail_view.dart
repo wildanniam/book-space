@@ -1,4 +1,3 @@
-import 'package:bookspace/list_data.dart';
 import 'package:bookspace/pages/detail_place.dart';
 import 'package:flutter/material.dart';
 

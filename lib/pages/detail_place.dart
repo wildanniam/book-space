@@ -9,14 +9,8 @@ class DetailPlace extends StatelessWidget {
   Widget build(BuildContext context) {
     return  SafeArea(
       child: Scaffold(
-        appBar: AppBar(
-          leading: IconButton(onPressed: () {
-            Navigator.pop(context);
-          }, icon: const Icon(Icons.arrow_back_ios)),
-        ),
         body: Column(children: [
           // ...place.listImages.map((image) => Image.network(image) )
-        
           SizedBox(
             height:300,
             child: ListView.builder(

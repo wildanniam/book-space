@@ -1,10 +1,13 @@
-import 'package:bookspace/widgets/detail_view.dart';
+import 'package:bookspace/widgets/favorite_widget.dart';
 import 'package:flutter/material.dart';
 
 import '../model/place.dart';
+import 'detail_place.dart';
 
 class DetailRecomPlace extends StatefulWidget {
-  const DetailRecomPlace({super.key});
+  const DetailRecomPlace({
+    super.key,
+  });
 
   @override
   State<DetailRecomPlace> createState() => _DetailRecomPlaceState();
@@ -44,6 +47,7 @@ class _DetailRecomPlaceState extends State<DetailRecomPlace> {
               children: [
                 _buildSearchField(),
                 const SizedBox(height: 16),
+                //hasil dari extract methode untuk memisahkan widget filter
                 _buildFilter(),
               ],
             ),
@@ -51,47 +55,154 @@ class _DetailRecomPlaceState extends State<DetailRecomPlace> {
           const SizedBox(
             height: 16,
           ),
-           SizedBox(
+          SizedBox(
             height: 650,
-            child: DetailView(place: placeList,),
+            child: ListView.builder(
+              physics: const BouncingScrollPhysics(),
+              itemCount: placeList.length,
+              itemBuilder: (context, index) {
+                var data = placeList[index];
+                return InkWell(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => DetailPlace(
+                                  place: data,
+                                )));
+                  },
+                  child: Container(
+                    margin: const EdgeInsets.fromLTRB(16, 0, 16, 16),
+                    width: 300,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Stack(
+                          children: [
+                            Container(
+                              height: 200,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.rectangle,
+                                color: Colors.black,
+                                borderRadius: BorderRadius.circular(10),
+                                image: DecorationImage(
+                                  image: NetworkImage(data.listImages[0]),
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                            ),
+                            Container(
+                              height: 200,
+                              decoration: BoxDecoration(
+                                color: Colors.black.withOpacity(0.3),
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                            ),
+                            _buildCardDetailPlace(data),
+                            const Positioned(
+                              top: 0,
+                              right: 0,
+                              child: FavoriteButton(),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                );
+              },
+            ),
           )
         ],
       ),
     );
   }
 
+  SizedBox _buildCardDetailPlace(Place data) {
+    return SizedBox(
+      height: 200,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: [
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                _buildTitle(data),
+                _buildAddress(data),
+              ],
+            ),
+          ),
+          const CircleAvatar(
+            radius: 20,
+            backgroundColor: Color(0xffF89621),
+            child: InkWell(
+              child: Icon(
+                Icons.arrow_forward_ios,
+                color: Colors.white,
+              ),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
+  Text _buildAddress(Place data) {
+    return Text(
+      data.address,
+      style: const TextStyle(
+        fontSize: 12,
+        fontWeight: FontWeight.bold,
+        color: Colors.white,
+      ),
+    );
+  }
+
+  Text _buildTitle(Place data) {
+    return Text(
+      data.title,
+      style: const TextStyle(
+        fontSize: 24,
+        fontWeight: FontWeight.bold,
+        color: Colors.white,
+      ),
+    );
+  }
+
   Row _buildFilter() {
     return const Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    children: [
-                      Text("Filter",
-                          style: TextStyle(fontWeight: FontWeight.bold)),
-                      InkWell(
-                        child: SizedBox(
-                          width: 20,
-                          height: 20,
-                          child: Icon(Icons.arrow_drop_down),
-                        ),
-                      ),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      IconButton(
-                        icon: Icon(Icons.grid_view),
-                        color: Colors.grey, // Warna default (tidak dipilih)
-                        onPressed: null,
-                      ),
-                      IconButton(
-                        icon: Icon(Icons.view_agenda, color: Colors.orange),
-                        onPressed: null,
-                      ),
-                    ],
-                  ),
-                ],
-              );
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Row(
+          children: [
+            Text("Filter", style: TextStyle(fontWeight: FontWeight.bold)),
+            InkWell(
+              child: SizedBox(
+                width: 20,
+                height: 20,
+                child: Icon(Icons.arrow_drop_down),
+              ),
+            ),
+          ],
+        ),
+        Row(
+          children: [
+            IconButton(
+              icon: Icon(Icons.grid_view),
+              color: Colors.grey, // Warna default (tidak dipilih)
+              onPressed: null,
+            ),
+            IconButton(
+              icon: Icon(Icons.view_agenda, color: Colors.orange),
+              onPressed: null,
+            ),
+          ],
+        ),
+      ],
+    );
   }
 
   Container _buildSearchField() {
