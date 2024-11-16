@@ -19,9 +19,15 @@ class HomePage extends StatelessWidget {
         title: const Text(
           'BookSpace',
           style: TextStyle(
-              fontSize: 21,
-              color: Color.fromARGB(255, 248, 151, 33),
-              fontWeight: FontWeight.w900),
+            fontSize: 21,
+            color: Color.fromARGB(
+              255,
+              248,
+              151,
+              33,
+            ),
+            fontWeight: FontWeight.w900,
+          ),
         ),
         actions: const [
           Padding(
@@ -29,7 +35,12 @@ class HomePage extends StatelessWidget {
             child: Icon(
               Icons.mail,
               size: 30,
-              color: Color.fromARGB(255, 248, 151, 33),
+              color: Color.fromARGB(
+                255,
+                248,
+                151,
+                33,
+              ),
             ),
           ),
         ],
@@ -38,21 +49,31 @@ class HomePage extends StatelessWidget {
       body: ListView(
         children: [
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
+            padding: const EdgeInsets.symmetric(
+              horizontal: 16,
+            ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                  margin: const EdgeInsets.only(top: 15),
+                  margin: const EdgeInsets.only(
+                    top: 15,
+                  ),
                   child: const Text(
                     "Halo,",
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
                 ),
                 Container(
                   child: const Text(
                     "Sujono",
-                    style: TextStyle(fontSize: 32, fontWeight: FontWeight.w700),
+                    style: TextStyle(
+                      fontSize: 32,
+                      fontWeight: FontWeight.w700,
+                    ),
                   ),
                 ),
                 const SizedBox(
@@ -61,8 +82,15 @@ class HomePage extends StatelessWidget {
                 Container(
                   margin: const EdgeInsets.symmetric(vertical: 10),
                   decoration: BoxDecoration(
-                    color: const Color.fromARGB(145, 243, 243, 243),
-                    borderRadius: BorderRadius.circular(10),
+                    color: const Color.fromARGB(
+                      145,
+                      243,
+                      243,
+                      243,
+                    ),
+                    borderRadius: BorderRadius.circular(
+                      10,
+                    ),
                   ),
                   child: Row(
                     children: [
@@ -88,14 +116,14 @@ class HomePage extends StatelessWidget {
                     style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
                   ),
                 ),
-                EventService(),
+                _eventService(),
                 Container(
                   child: const Text(
                     "Event Kamu",
                     style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
                   ),
                 ),
-                EventKamu(),
+                _eventKamu(),
                 const SizedBox(
                   height: 14,
                 ),
@@ -117,7 +145,7 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  SizedBox EventService() {
+  SizedBox _eventService() {
     return SizedBox(
       height: 120,
       child: Row(
@@ -183,7 +211,7 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Container EventKamu() {
+  Container _eventKamu() {
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 10),
       height: 200,
