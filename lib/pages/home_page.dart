@@ -173,7 +173,7 @@ class HomePage extends StatelessWidget {
                               height: 70,
                               decoration: BoxDecoration(
                                 color: Colors.orange
-                                    .withOpacity(0.3), // Overlay oranye
+                                    .withOpacity(0.1), // Overlay oranye
                                 shape: BoxShape.circle,
                               ),
                             ),
@@ -205,9 +205,7 @@ class HomePage extends StatelessWidget {
   CircleAvatar _buildImageService(Service dataService) {
     return CircleAvatar(
       radius: 35,
-      backgroundImage: AssetImage(
-        dataService.image,
-      ),
+      backgroundImage: NetworkImage(dataService.image),
     );
   }
 
