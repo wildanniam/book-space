@@ -27,62 +27,69 @@ class _DetailPlaceState extends State<DetailPlace> {
     }
 
     return Scaffold(
-      body: Column(
-        children: [
-          // ...place.listImages.map((image) => Image.network(image) )
-          Stack(
-            children: [
-              ClipRRect(
-                borderRadius: const BorderRadius.only(
-                  bottomLeft: Radius.circular(25),
-                  bottomRight: Radius.circular(25),
-                ),
-                child: _imageCarousel(listImages),
-              ),
-              _buildTopbarImage(context),
-            ],
-          ),
-          const SizedBox(
-            height: 16,
-          ),
-          Container(
-            margin: const EdgeInsets.fromLTRB(20, 8, 20, 8),
-            child: Column(
+      body: SingleChildScrollView(
+        physics: const ClampingScrollPhysics(),
+        child: Column(
+          children: [
+            // ...place.listImages.map((image) => Image.network(image) )
+            Stack(
               children: [
-                _buildDetailPlace(dataPlace),
-                const SizedBox(
-                  height: 20,
+                ClipRRect(
+                  borderRadius: const BorderRadius.only(
+                    bottomLeft: Radius.circular(25),
+                    bottomRight: Radius.circular(25),
+                  ),
+                  child: _imageCarousel(listImages),
                 ),
-                Container(
-                    child: const Divider(
-                  color: Color(0xFFDADADA),
-                  thickness: 1,
-                )),
-                const SizedBox(
-                  height: 16,
-                ),
-                _buildDescriptionPlace(dataPlace),
-                _buildInfoPlace(),
-                Container(
-                  margin: const EdgeInsets.only(top: 28),
-                  child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.orange),
-                      onPressed: () {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(
-                            content: Text(
-                              "Booking berhasil",
-                            ),
-                          ),
-                        );
-                      },
-                      child: const Text('Book Now')),
-                )
+                _buildTopbarImage(context),
               ],
             ),
-          ),
-        ],
+
+            ListView(
+              shrinkWrap: true,
+              primary: false,
+              children: [
+                Container(
+                  margin: const EdgeInsets.fromLTRB(20, 8, 20, 8),
+                  child: Column(
+                    children: [
+                      _buildDetailPlace(dataPlace),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      Container(
+                          child: const Divider(
+                        color: Color(0xFFDADADA),
+                        thickness: 1,
+                      )),
+                      const SizedBox(
+                        height: 16,
+                      ),
+                      _buildDescriptionPlace(dataPlace),
+                      _buildInfoPlace(),
+                      Container(
+                        margin: const EdgeInsets.only(top: 28),
+                        child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.orange),
+                            onPressed: () {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                  content: Text(
+                                    "Booking berhasil",
+                                  ),
+                                ),
+                              );
+                            },
+                            child: const Text('Book Now')),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
